@@ -1,0 +1,43 @@
+#include<stdio.h>
+intmystrlen(const char *str)
+{
+int i=0;
+while (str[i]!= '\0') i++;
+return i;
+}
+intmystrcmp(const char *s1, const char *s2)
+{
+int i=0;
+while (s1[i]==s2[i] && s1[i]!= '\0') i++;
+return s1[i] - s2[i];
+}
+voidmystrcat(char *dest, const char *src)
+{
+int i=0, j=0;
+j = mystrlen(dest);
+while (src[i] != '\0' ) dest[j++] = src[i++];
+dest[j++] = '\0';
+}
+int main()
+{
+int len1, len2, a;
+char str1[30], str2[30];
+printf("\nEnter two strings\n");
+printf("\nString 1 : "); 
+scanf("%s", str1);
+printf("\nString 2 : "); 
+scanf("%s", str2);
+len1 = mystrlen(str1);
+len2 = mystrlen(str2);
+printf("\nLength of String %s is %d", str1, len1);
+printf("\nLength of String %s is %d", str2, len2);
+a = mystrcmp(str1, str2);
+if(a == 0)
+printf("\nTwo strings are equal");
+else if(a > 0)
+printf("\nString %s is greater than String %s ", str1, str2);
+else
+printf("\nString %s is greater than String %s ", str2, str1);
+mystrcat(str1, str2);
+printf("\nConcatenated String is %s", str1);
+}
