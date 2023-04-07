@@ -1,0 +1,31 @@
+#include<stdio.h>
+#include<math.h>
+void main()
+{
+int i, n;
+float mean = 0.0, variance = 0.0, sd = 0.0, num[100], sum=0.0;
+float *ptr;
+ptr = num;
+printf("\nEnter the number of Values : ");
+scanf("%d",&n);
+printf("\nEnter %d values\n", n);
+for(i=0; i<n; i++)
+{
+scanf("%f", ptr+i);
+sum += *(ptr+i); 
+}
+mean = sum / n;
+for(i=0; i<n; i++)
+{
+variance += (ptr[i] - mean) * (ptr[i] - mean);
+}
+variance /= n;
+sd = sqrt(variance);
+printf("\nThe values entered are");
+for(i=0; i<n; i++)
+{
+printf("\n\t%f", ptr[i]);
+}
+printf("\n\tMean = \t%f\n\tVariance = \t%f\n\tStandard Deviation = \t%f\n",
+mean, variance, sd);
+}
