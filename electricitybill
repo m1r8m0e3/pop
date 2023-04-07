@@ -1,0 +1,32 @@
+#include <stdio.h>
+void main()
+{
+  char cname[30];
+  int units;
+  float billamt = 0.0;
+  printf("Enter the Name of Customer : ");
+  scanf("%s", cname);
+  printf("Enter the Number of units consumed : ");
+  scanf("%d", &units);
+  if(units <= 200)
+  {
+    billamt = (units*0.8) + 100;
+  }
+  else if(units > 200 && units <= 300)
+  {
+    billamt = (200*0.8) + ((units-200)*0.9) + 100;
+  }
+  else
+  {
+    billamt = (200*0.8) + (100*0.9) + ((units-300)*1) + 100;
+  }
+  if(billamt > 400)
+  {
+    billamt = billamt + billamt*0.15;
+  }
+  printf("--------------------------------\n");
+  printf("Customer Name : %s\n", cname);
+  printf("Number of Units Consumed : %d\n", units);
+  printf("Bill Amount : Rs.%0.2f/-\n", billamt);
+  printf("--------------------------------\n");
+}
