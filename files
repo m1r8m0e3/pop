@@ -1,0 +1,30 @@
+#include <stdio.h>
+void main()
+{
+  FILE *fptr1, *fptr2;
+  char filename1[100], filename2[100], c;
+  printf("Enter the file name to open for reading\n");
+  scanf("%s", filename1);
+  fptr1 = fopen(filename1, "r");
+  if(fptr1 == 0)
+  {
+    printf("Can not open file %s", filename1);
+    exit(0);
+  }
+  printf("Enter the file name to open for writing\n");
+  scanf("%s", filename2);
+  fptr2 = fopen(filename2, "w");
+  if(fptr2 == 0)
+  {
+    printf("Can not open file %s", filename2);
+    exit(0);
+  }
+  c = fgetc(fptr1);
+  while(c != EOF)
+    {
+      fputc(c, fptr2);
+      c = fgetc(fptr1);
+    }
+  fclose(fptr1);
+  fclose(fptr2);
+}
