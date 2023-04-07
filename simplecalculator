@@ -1,0 +1,22 @@
+#include <stdio.h>
+void main()
+{
+  int op1, op2;
+  char operator;
+  printf("Enter the arithmetic operation\n");
+  scanf("%d%c%d", &op1, &operator, &op2);
+  switch(operator)
+    {
+      case '+' : printf("Result is %d", op1 + op2);
+      break;
+      case '-' : printf("Result is %d", op1 - op2);
+      break;
+      case '*' : printf("Result is %d", op1 * op2);
+      break;
+      case '/' : printf("Result is %f", (float)op1 / op2);
+      break;
+      case '%' : printf("Result is %d", op1 % op2);
+      break;
+    }
+    
+}
