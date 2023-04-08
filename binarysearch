@@ -1,0 +1,43 @@
+#include <stdio.h>
+void main()
+{
+  int a[100], n, i, mid, high, low, found, key;
+  printf("Enter the Number of Elements : ");
+  scanf("%d", &n);
+  printf("Enter the Elements in Ascending order\n");
+  for(i=0; i<n; i++)
+    {
+      scanf("%d", &a[i]);
+    }
+  printf("Enter the Key : ");
+  scanf("%d", &key);
+  found = 0;
+  low = 0;
+  high = n-1;
+  while(low <= high)
+    {
+      mid = (low + high)/2;
+      if(key == a[mid])
+      {
+        found = 1;
+        break;
+      }
+      else if(key < a[mid])
+      {
+        high = mid-1;
+      }
+      else
+      {
+        low = mid + 1;
+      }
+    }
+  if(found == 1)
+  {
+    printf("Key Element %d found at %d\n", key, mid+1);
+  }
+  else
+  {
+    printf("Key not Found\n");
+  }
+  
+}
